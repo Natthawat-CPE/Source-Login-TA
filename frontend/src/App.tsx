@@ -82,6 +82,7 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 const menu = [
+  // เมนูฝั่งซ้ายมือ
   { name: "หน้าแรก", icon: <HomeIcon />, path: "/" },
   { name: "สมาชิก", icon: <PeopleIcon />, path: "/users" },
   { name: "การเข้าชมวีดีโอ", icon: <YouTubeIcon />, path: "/watch_videos" },
@@ -117,6 +118,7 @@ function App() {
       <ThemeProvider theme={mdTheme}>
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
+          {/* Bar */}
           <AppBar position="absolute" open={open}>
             <Toolbar
               sx={{
@@ -149,6 +151,7 @@ function App() {
               </Button>
             </Toolbar>
           </AppBar>
+          {/* ตัวแทบด้วนซ้าย */}
           <Drawer variant="permanent" open={open}>
             <Toolbar
               sx={{
@@ -162,10 +165,12 @@ function App() {
                 <ChevronLeftIcon />
               </IconButton>
             </Toolbar>
-            <Divider />
+            <Divider /> {/*ตัวแบ่ง */}
             <List>
+              {" "}
+              {/* list ฝั่งซ้ายมือที่ยื่นออกมา */}
               {menu.map((item, index) => (
-                <Link
+                <Link // ตัว link =>  href
                   to={item.path}
                   key={item.name}
                   style={{ textDecoration: "none", color: "inherit" }}
@@ -178,6 +183,7 @@ function App() {
               ))}
             </List>
           </Drawer>
+          {/*  Box หลัก */}
           <Box
             component="main"
             sx={{
@@ -192,6 +198,7 @@ function App() {
           >
             <Toolbar />
             <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+              {/* หน้าที่ คอยรับ path ที่เข้ามาแล้วจะไปหน้าไหนต่อ */}
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/users" element={<Users />} />
