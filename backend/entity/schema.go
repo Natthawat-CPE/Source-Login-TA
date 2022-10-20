@@ -9,7 +9,8 @@ import (
 type User struct {
 	gorm.Model
 	Name     string
-	Email    string `gorm:"uniqueIndex"`
+	// Email    string `gorm:"uniqueIndex"`
+	Email    string //`gorm:"uniqueIndex"`
 	Password string `json:"-"`
 	// 1 user เป็นเจ้าของได้หลาย video
 	Videos []Video `gorm:"foreignKey:OwnerID"`
@@ -20,7 +21,7 @@ type User struct {
 type Video struct {
 	gorm.Model
 	Name string
-	Url  string `gorm:"uniqueIndex"`
+	Url  string //`gorm:"uniqueIndex"`
 	// OwnerID ทำหน้าที่เป็น FK
 	OwnerID *uint
 	// เป็นข้อมูล user เมื่อ join ตาราง

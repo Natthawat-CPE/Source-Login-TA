@@ -7,7 +7,7 @@ import (
 	"github.com/tanapon395/sa-65-example/middlewares"
 )
 
-const PORT = "8080"
+const PORT = "8888"
 
 func main() {
 	entity.SetupDatabase()
