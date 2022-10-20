@@ -95,6 +95,7 @@ function App() {
   };
 
   useEffect(() => {
+    // [1] รับ Token
     const token = localStorage.getItem("token");
     if (token) {
       setToken(token);
@@ -102,10 +103,11 @@ function App() {
   }, []);
 
   if (!token) {
-    return <SignIn />;
+    return <SignIn />; // ## go to page signIn
   }
 
   const signout = () => {
+    // []
     localStorage.clear();
     window.location.href = "/";
   };
